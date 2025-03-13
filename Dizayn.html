@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SultanCard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="card-container">
+        <!-- TBC Bank karta -->
+        <div class="card">
+            <div class="bank-logo">
+                <img src="tbc_logo.png" alt="TBC Bank">
+            </div>
+            <p><strong>Ism:</strong> ZAFARBEK</p>
+            <p><strong>Familiya:</strong> OLUYOQULOV</p>
+            <p><strong>Karta raqam:</strong> <span id="card1">9860350143578754</span></p>
+            <button onclick="copyToClipboard('card1')">Nusxa olish</button>
+            <div class="humo-logo">
+                <img src="humo_logo.png" alt="HUMO">
+            </div>
+        </div>
+
+        <!-- Anorbank karta -->
+        <div class="card">
+            <div class="bank-logo">
+                <img src="anorbank_logo.png" alt="Anorbank">
+            </div>
+            <p><strong>Ism:</strong> ZAFARBEK</p>
+            <p><strong>Familiya:</strong> OLUYOQULOV</p>
+            <p><strong>Karta raqam:</strong> <span id="card2">9860600402454240</span></p>
+            <button onclick="copyToClipboard('card2')">Nusxa olish</button>
+            <div class="humo-logo">
+                <img src="humo_logo.png" alt="HUMO">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.bank-logo img, .humo-logo img {
+    width: 100px;
+    margin: 10px auto;
+    display: block;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+function copyToClipboard(id) {
+    let text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Karta raqam nusxalandi: " + text);
+    });
+}
